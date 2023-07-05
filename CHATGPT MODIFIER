@@ -1,0 +1,37 @@
+import pandas as pd
+import os
+
+def merge_excel_files(file1_name, file2_name, merged_file_name):
+    # Check if input files exist
+    if not os.path.isfile(file1_name):
+        print(f"File '{file1_name}' does not exist.")
+        return
+    if not os.path.isfile(file2_name):
+        print(f"File '{file2_name}' does not exist.")
+        return
+
+    try:
+        # Load the first Excel file into a pandas dataframe
+        df1 = pd.read_excel(file1_name)
+
+        # Load the second Excel file into another pandas dataframe
+        df2 = pd.read_excel(file2_name)
+
+        # Concatenate the dataframes vertically
+        merged_df = pd.concat([df1, df2])
+
+        # Save the merged dataframe to a new Excel file
+        merged_df.to_excel(merged_file_name, index=False)
+        print(f"Merged file saved as '{merged_file_name}'.")
+    except Exception as e:
+        print("An error occurred while merging the files.")
+        print(e)
+
+
+# Prompt the user to enter the filenames
+file1_name = input("Enter the filename for the first Excel file: ")
+file2_name = input("Enter the filename for the second Excel file: ")
+merged_file_name = input("Enter the filename for the merged Excel file: ")
+
+# Call the merge_excel_files function
+merge_excel_files(file1_name, file2_name, merged_file_name)

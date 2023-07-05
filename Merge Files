@@ -1,0 +1,13 @@
+import pandas as pd
+
+# Load the first Excel file into a pandas dataframe
+df1 = pd.read_excel('file1.xlsx')
+
+# Load the second Excel file into another pandas dataframe
+df2 = pd.read_excel('file2.xlsx')
+
+# Concatenate the dataframes vertically
+merged_df = pd.concat([df1, df2])
+
+# Save the merged dataframe to a new Excel file
+merged_df.to_excel('merged_file.xlsx', index=False)

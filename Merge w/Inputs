@@ -1,0 +1,20 @@
+import pandas as pd
+
+# Prompt the user to enter the filenames
+file1_name = input("Enter the filename for the first Excel file: ")
+file2_name = input("Enter the filename for the second Excel file: ")
+
+# Load the first Excel file into a pandas dataframe
+df1 = pd.read_excel(file1_name)
+
+# Load the second Excel file into another pandas dataframe
+df2 = pd.read_excel(file2_name)
+
+# Concatenate the dataframes vertically
+merged_df = pd.concat([df1, df2])
+
+# Prompt the user to enter the filename for the merged Excel file
+merged_file_name = input("Enter the filename for the merged Excel file: ")
+
+# Save the merged dataframe to a new Excel file
+merged_df.to_excel(merged_file_name, index=False)

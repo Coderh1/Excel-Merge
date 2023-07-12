@@ -17,8 +17,8 @@ def merge_excel_files(file1_name, file2_name, merged_file_name):
         # Load the second Excel file into another pandas dataframe
         df2 = pd.read_excel(file2_name)
 
-        # Drop the header row from the second dataframe
-        df2 = df2.iloc[1:]
+        # Drop the first 3 rows from the second dataframe
+        df2 = df2.iloc[3:]
 
         # Concatenate the dataframes vertically
         merged_df = pd.concat([df1, df2])
